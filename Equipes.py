@@ -1,5 +1,5 @@
 class Equipe:
-    def __init__(self,nom,lvl):
+    def __init__(self,nom,lvl):  #initialisation de la classe
         self.nom=nom
         self.lvl=lvl
         self.points=0
@@ -8,10 +8,10 @@ class Equipe:
         self.but_marquer=0
         self.but_encaisser=0
     @property
-    def diff_but(self):
+    def diff_but(self): #calcul de la différence de but
         return self.but_marquer-self.but_encaisser
     
-    def actualiser_stat(self,but_marquer,but_encaisser):
+    def actualiser_stat(self,but_marquer,but_encaisser): #actualisation des statistique
         self.but_marquer+=but_marquer
         self.but_encaisser+=but_encaisser
         if but_marquer>but_encaisser:
@@ -21,10 +21,10 @@ class Equipe:
         self.nb_match+=1
     
         
-    def __str__(self):
+    def __str__(self): #affichage des informations des équipes
         return f"Equipes : nom:{self.nom}, lvl:{self.lvl}, pts:{self.points}, rank:{self.rank}, nb_match:{self.nb_match}, but:{self.but_marquer}, diff_but:{self.diff_but}"
     
-
+# test du bon fonctionnement de la classe
 if __name__=="__main__":
     team=Equipe("Arsenal",4.0)
     print(team)
