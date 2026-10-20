@@ -1,6 +1,5 @@
 import Equipe
 import Calendrier
-import math
 import numpy as np
 
 class League:
@@ -29,24 +28,24 @@ class League:
         equipe1.actualiser_stat(goal1,goal2)
         equipe2.actualiser_stat(goal2,goal1)
     
-    def simuler_saison(self):
-        for day in self.calendrier:
-            for j in day:
-                self.simuler_match(j[0],j[1])
-    
     def rang(self):
         trier=sorted(self.equipes, key=lambda equipe:(equipe.points,equipe.diff_but,equipe.but_marquer), reverse=True)
         for i in range(len(self.equipes)):
             self.classement[i+1]=(trier[i].nom,trier[i].points)
+    
+    def simuler_saison(self):
+        for day in self.calendrier:
+            for j in day:
+                self.simuler_match(j[0],j[1])
+        self.rang()
 
     def __str__(self):
        return f"Classement : {self.classement}"
 
+if __name__=="__main__":
+    Equipes=[Equipe.Equipe("Arsenal",4.5),Equipe.Equipe("Man-U",3.5),Equipe.Equipe("PSG",5.0),Equipe.Equipe("Real",4.0)]
+    League_f=League(Equipes)
 
-Equipes=[Equipe.Equipe("Arsenal",4.5),Equipe.Equipe("Man-U",3.5),Equipe.Equipe("PSG",5.0),Equipe.Equipe("Real",4.0)]
-League_f=League(Equipes)
-
-League_f.simuler_saison()
-League_f.rang()
-print(League_f)
+    League_f.simuler_saison()
+    print(League_f)
 

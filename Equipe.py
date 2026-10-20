@@ -20,6 +20,14 @@ class Equipe:
             self.points+=1
         self.nb_match+=1
     
+    def reinitialiser(self):
+        self.points=0
+        self.but_marquer=0
+        self.but_encaisser=0
+        self.rank=0
+        self.nb_rank=0
+        
+    
         
     def __str__(self): #affichage des informations des équipes
         return f"Equipes : nom:{self.nom}, lvl:{self.lvl}, pts:{self.points}, rank:{self.rank}, nb_match:{self.nb_match}, but:{self.but_marquer}, diff_but:{self.diff_but}"
