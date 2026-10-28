@@ -30,9 +30,9 @@ $$\lambda_A=\lambda_{\text{base}} \cdot e^{\beta \cdot \Delta}$$
 - **$\beta=0,25$**: Représente le coefficient régulateur pour avantager ou non une équipe en fonction de l'écart de niveau
 
 ### 2. Estimation des probabilités:
-    - La simulation d'un ligue prend en compte plusieurs facteurs et plusieurs critères ce qui rend quasiment impossible sa résolution par calcul direct.
-    -Notre algorithme fait jouer $N$ saisons autonomes et indépendantes à chaque itération.
-    -C'est là que la loi des grands nombres intervient avec cette formule qui montre que plus le nombre d'itération est grand, plus on se rapproche d'un résulat qui tend vers la probabilité théorique : $$\text{Fréquence}(A) = \frac{\text{Victoires}_A}{N} \xrightarrow[N \to \infty]{} P(\text{Titre}_A)$$
+- La simulation d'un ligue prend en compte plusieurs facteurs et plusieurs critères ce qui rend quasiment impossible sa résolution par calcul direct.
+- Notre algorithme fait jouer $N$ saisons autonomes et indépendantes à chaque itération.
+- C'est là que la loi des grands nombres intervient avec cette formule qui montre que plus le nombre d'itération est grand, plus on se rapproche d'un résulat qui tend vers la probabilité théorique : $$\text{Fréquence}(A) = \frac{\text{Victoires}_A}{N} \xrightarrow[N \to \infty]{} P(\text{Titre}_A)$$
     
 ## Architecture du projet
 
