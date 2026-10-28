@@ -31,7 +31,7 @@ class Calendrier:
     
     
 
-    def __str__(self):
+    def __str__(self): # mise en forme pour l'affichage
      return f"Calendrier: num:{self.num_journee}, equipes:{self.equipes}, calendrier:{self.calendrier}"
      
  

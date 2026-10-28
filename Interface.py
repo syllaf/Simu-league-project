@@ -9,7 +9,7 @@ ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("blue")
 
 class Application(ctk.CTk):
-    def __init__(self):
+    def __init__(self): # création de l'interface graphique
         super().__init__()
         self.title("Simu-League")
         self.geometry("950x550")
@@ -28,7 +28,7 @@ class Application(ctk.CTk):
         self.construire_panneau_gauche()
         self.initialiser_graphique()
     
-    def construire_panneau_gauche(self):
+    def construire_panneau_gauche(self): # construction du panneau gauche
         titre=ctk.CTkLabel(self.frame_gauche, text="Configuration", font=ctk.CTkFont(size=18,weight="bold"),)
         titre.pack(pady=(15,10))
         
@@ -60,7 +60,7 @@ class Application(ctk.CTk):
         
         
     
-    def ajouter_ligne_equipe(self, nom="", note=""):
+    def ajouter_ligne_equipe(self, nom="", note=""): # option pour ajouter une equipe à la ligue
         ligne=ctk.CTkFrame(self.scroll_equipes, fg_color="transparent")
         ligne.pack(fill="x",pady=3)
         
@@ -78,7 +78,7 @@ class Application(ctk.CTk):
         btn_suppr.pack(side="left",padx=(5,0))
         self.lignes_equipes.append(donnees_ligne)
     
-    def supprimer_ligne_equipe(self, donnees_ligne):
+    def supprimer_ligne_equipe(self, donnees_ligne): # option pour supprimer une equipe de la ligue
         if len(self.lignes_equipes)<=2:
             self.lbl_erreur.configure(text="Minimum 2 équipes requises !")
             return
@@ -86,7 +86,7 @@ class Application(ctk.CTk):
         donnees_ligne["frame"].destroy()
         self.lignes_equipes.remove(donnees_ligne)
         
-    def initialiser_graphique(self):
+    def initialiser_graphique(self): # dessin du graphique des pourcentage de victoire au championnat
         self.fig, self.ax= plt.subplots(figsize=(6,4.5))
         self.fig.patch.set_facecolor("#2b2b2b")
         self.ax.set_facecolor("#2b2b2b")
@@ -99,7 +99,7 @@ class Application(ctk.CTk):
         self.canvas.draw()
         
         
-    def lancer_simulation(self):
+    def lancer_simulation(self): # lancement du simulateur
         self.lbl_erreur.configure(text="")
         try:
             nb_iter=int(self.entry_n.get())
@@ -131,7 +131,7 @@ class Application(ctk.CTk):
         simu.simuler()
         self.actualiser_graphique(simu.pourcentage)
     
-    def actualiser_graphique(self, donnees_pourcentage):
+    def actualiser_graphique(self, donnees_pourcentage): #actualisation du graphique avec les nouvelle information
         self.ax.clear()
         self.ax.axis("on")
         self.ax.set_facecolor("#2b2b2b")
@@ -156,11 +156,12 @@ class Application(ctk.CTk):
         self.fig.tight_layout()
         self.canvas.draw()
     
-    def fermer_application(self):
+    def fermer_application(self): # fermeture de la fenetre
         plt.close("all")
         self.quit()
         self.destroy()
 
+# test du bon fonctionnement de la classe
 if __name__=="__main__":
     app=Application()
     app.mainloop()
